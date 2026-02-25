@@ -1,0 +1,22 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: server
+    trust-store: classpath:truststore.p12
+    trust-store-password: password
+    trust-store-type: PKCS12
+
+app:
+  security:
+    # This will be updated with the actual fingerprint after generating certificates
+    expected-client-fingerprint: "C5:73:4D:D1:AB:D5:A4:FA:05:E3:C4:FE:4B:51:28:9C:62:9B:9C:D4:3C:D5:62:D5:A9:F3:8C:BF:18:FE:5D:15"
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.example.mtls: DEBUG
